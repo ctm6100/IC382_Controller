@@ -325,6 +325,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+		HAL_IWDG_Refresh(&hiwdg); //Limit: 3.2 seconds
   }
   /* USER CODE END 3 */
 }
