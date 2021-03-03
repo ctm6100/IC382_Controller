@@ -1,5 +1,5 @@
-# Mercy_Controller
-It is a mercy version for IC382 Rescue Robot student.
+# Humane_Controller
+It is a humane version for IC382 Rescue Robot student. Full of love ~
 
 ## What's inside?
 * Basic robot movement
