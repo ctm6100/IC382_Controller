@@ -4,7 +4,7 @@
   * @file           : main.c
   * @brief          : Main program body
 	* @author         : Chan Tai Wing Vincent
-	* @remark         : I am so mercy
+	* @remark         : Kindest people in the world
   ******************************************************************************
   * @attention
   *
@@ -218,7 +218,7 @@ int main(void)
   MX_ADC1_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  printf("[SYSTEM] Mercy Help START...\r\n");                                     //Print startup function
+  printf("[SYSTEM] Humane Help START...\r\n");                                     //Print startup function
 	printf("[SYSTEM] Connecting to MPU6050...\r\n");        
 	
 	HAL_UART_Receive_DMA(&huart3,UART_RX_BUFFER,BUFFER_SIZE);                       //Receive Jetson AI Message
