@@ -1,5 +1,5 @@
 # Humane_Controller
-It is a humane version for IC382 Rescue Robot student. Full of love ~
+It is a humane version for IC382 Rescue Robot student. I am so kind.
 
 ## What's inside?
 * Basic robot movement

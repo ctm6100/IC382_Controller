@@ -240,7 +240,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		if(MPU_Sampling)
+		//if(MPU_Sampling)
+		if(false)   //Disble MPU6050
 		{
 			//Read MPU6050 value and processed by Kalman Filter
       MPU6050_Read_All(&hi2c1,&MPU6050);
@@ -320,6 +321,7 @@ int main(void)
 		}
 		
 		//Robot Control//
+		robot_forward(30);
 		
 		//Robot Control//
     /* USER CODE END WHILE */
@@ -975,12 +977,12 @@ void gpu_msg_analyzer()
 
 void robot_forward(int speed)
 {
-	HAL_GPIO_WritePin(MOTOR1_IN1_GPIO_Port,MOTOR1_IN1_Pin,GPIO_PIN_RESET);     //MOTOR1 I/O
-	HAL_GPIO_WritePin(MOTOR1_IN2_GPIO_Port,MOTOR1_IN2_Pin,GPIO_PIN_SET);       //MOTOR1 I/O
+	HAL_GPIO_WritePin(MOTOR1_IN1_GPIO_Port,MOTOR1_IN1_Pin,GPIO_PIN_SET);     //MOTOR1 I/O
+	HAL_GPIO_WritePin(MOTOR1_IN2_GPIO_Port,MOTOR1_IN2_Pin,GPIO_PIN_RESET);       //MOTOR1 I/O
 	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,calculate_MOTOR_PWM(speed));    //MOTOR1 PWM
 	
-	HAL_GPIO_WritePin(MOTOR2_IN1_GPIO_Port,MOTOR2_IN1_Pin,GPIO_PIN_RESET);     //MOTOR2 I/O
-	HAL_GPIO_WritePin(MOTOR2_IN2_GPIO_Port,MOTOR2_IN2_Pin,GPIO_PIN_SET);       //MOTOR2 I/O
+	HAL_GPIO_WritePin(MOTOR2_IN1_GPIO_Port,MOTOR2_IN1_Pin,GPIO_PIN_SET);     //MOTOR2 I/O
+	HAL_GPIO_WritePin(MOTOR2_IN2_GPIO_Port,MOTOR2_IN2_Pin,GPIO_PIN_RESET);       //MOTOR2 I/O
 	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,calculate_MOTOR_PWM(speed));    //MOTOR2 PWM	
 }
 
@@ -997,12 +999,12 @@ void robot_stop(void)
 
 void robot_adjust(int motor1_speed, int motor2_speed)
 {
-	HAL_GPIO_WritePin(MOTOR1_IN1_GPIO_Port,MOTOR1_IN1_Pin,GPIO_PIN_RESET);              //MOTOR1 I/O
-	HAL_GPIO_WritePin(MOTOR1_IN2_GPIO_Port,MOTOR1_IN2_Pin,GPIO_PIN_SET);                //MOTOR1 I/O
+	HAL_GPIO_WritePin(MOTOR1_IN1_GPIO_Port,MOTOR1_IN1_Pin,GPIO_PIN_SET);              //MOTOR1 I/O
+	HAL_GPIO_WritePin(MOTOR1_IN2_GPIO_Port,MOTOR1_IN2_Pin,GPIO_PIN_RESET);                //MOTOR1 I/O
 	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,calculate_MOTOR_PWM(motor1_speed));      //MOTOR1 PWM
 	
-	HAL_GPIO_WritePin(MOTOR2_IN1_GPIO_Port,MOTOR2_IN1_Pin,GPIO_PIN_RESET);              //MOTOR2 I/O
-	HAL_GPIO_WritePin(MOTOR2_IN2_GPIO_Port,MOTOR2_IN2_Pin,GPIO_PIN_SET);                //MOTOR2 I/O
+	HAL_GPIO_WritePin(MOTOR2_IN1_GPIO_Port,MOTOR2_IN1_Pin,GPIO_PIN_SET);              //MOTOR2 I/O
+	HAL_GPIO_WritePin(MOTOR2_IN2_GPIO_Port,MOTOR2_IN2_Pin,GPIO_PIN_RESET);                //MOTOR2 I/O
 	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,calculate_MOTOR_PWM(motor2_speed));      //MOTOR2 PWM		
 }
 
